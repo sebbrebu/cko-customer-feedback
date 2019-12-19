@@ -1,0 +1,8 @@
+.CustomerFeedback {
+    width: 40%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    box-shadow: 10px 10px #eee;
+}

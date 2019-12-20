@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Aux from '../Aux/Aux';
 import TopContainer from '../TopContainer/TopContainer';
 import BottomContainer from '../BottomContainer/BottomContainer';
-import ReviewsContainer from '../../containers/FeedbackContainer/FeedbackContainer';
+import FeedbackContainer from '../../containers/FeedbackContainer/FeedbackContainer';
 import FormContainer from '../../containers/FormContainer/FormContainer';
 import GraphContainer from '../../containers/GraphContainer/GraphContainer';
+import { tsPropertySignature } from '../../../../../Library/Caches/typescript/3.4.5/node_modules/@babel/types/lib';
 
 
 var row = {
@@ -20,29 +21,27 @@ var header = {
     color: 'white'
   }
 
-class Layout extends Component {
-    render() {
+const layout = (props) => {
+    
         return  (
             <Aux>
                 <header style={header}>Customer Feedback</header>
 
                 <TopContainer>
                 <div style={row}>
-                    <FormContainer>
-
-                    </FormContainer>
-                    <GraphContainer></GraphContainer>
+                    <FormContainer submitHandler={props.submitHandler}/>
+                    <GraphContainer/>
                 </div>
                 </TopContainer>
 
                 <BottomContainer>
                     <div style={row}>
-                        <ReviewsContainer></ReviewsContainer>
+                        <FeedbackContainer reviews={props.reviews}></FeedbackContainer>
                     </div>
                 </BottomContainer>
             </Aux>
         );
-    }
+    
 }
 
-export default Layout;
+export default layout;

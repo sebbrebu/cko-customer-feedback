@@ -9,7 +9,7 @@ var divStyle = {
 };
 
 class Form extends Component {
-
+        
     constructor(props) {
         super(props);
         this.state = {
@@ -28,18 +28,30 @@ class Form extends Component {
       }
     
       handleSubmit(event) {
-        alert(`New comment submitted: 
-        Name: ` + this.state.name + `
-        Email: ` + this.state.email + `
-        Rating: ` + this.state.rating + `
-        Comment: ` + this.state.comments);
+        // alert(`New comment submitted: 
+        // Name: ` + this.state.name + `
+        // Email: ` + this.state.email + `
+        // Rating: ` + this.state.rating + `
+        // Comment: ` + this.state.comments);
+        
+        var newReview = {
+            name: this.state.name,
+            email: this.state.email,
+            rating: this.state.rating,
+            comments: this.state.comments,
+            createdDateTime: Date(Date.now()).toString('YYYY-MM-DD')
+          };
+
+          //add validation
+
+        this.props.submitHandler(newReview);
         event.preventDefault();
       }
 
     render() {
         return (
             <div style={divStyle}>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>    
 
                     <label>Name:</label>
                     <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />                    
@@ -54,6 +66,7 @@ class Form extends Component {
                     <input type="text" name="comments" value={this.state.value} onChange={this.handleChange} />                    
                     
                     <input type="submit" value="Submit" />
+
                 </form>
             </div>
         );

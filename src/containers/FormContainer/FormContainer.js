@@ -11,7 +11,7 @@ var divStyle = {
 
 class FormContainer extends Component {
     render(){
-        return(<Form></Form>)
+        return(<Form submitHandler={this.props.submitHandler}></Form>)
     }
 }
 

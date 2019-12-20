@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import Form from '../../components/Form/Form';
-
-var divStyle = {
-    borderStyle: 'solid',
-    float: 'left',
-    width: '40%',
-    padding: '10px',
-    height: '300px'
-};
+import ReviewForm from '../../components/Form/Form';
 
 class FormContainer extends Component {
     render(){
-        return(<Form submitHandler={this.props.submitHandler}></Form>)
+        return(<div className='GraphContainer'>
+            <ReviewForm submitHandler={this.props.submitHandler}></ReviewForm>
+            </div>)
     }
 }
 

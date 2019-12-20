@@ -1,0 +1,8 @@
+.GraphContainer {    
+    border: 1px solid #eee;
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    margin-left: 20px;
+};

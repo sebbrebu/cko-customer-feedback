@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Layout from './hoc/Layout//Layout.js';
-import { array } from 'prop-types';
 
 class App extends Component {
 
@@ -20,6 +19,13 @@ class App extends Component {
         rating: '1',
         comments: 'Worst experience ever',
         createdDateTime: '2019-12-21'
+      },
+      {
+        name: 'Mr. Average',
+        email: 'notImpressed@gmail.com',
+        rating: '3',
+        comments: 'meh',
+        createdDateTime: '2019-12-01'
       }
     ]
   };

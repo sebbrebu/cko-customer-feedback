@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import Rater from 'react-rater';
+//import 'react-rater/lib/react-rater.css';
 
-var divStyle = {
-    borderStyle: 'solid',
-    float: 'left',
-    width: '40%',
-    padding: '10px',
-    height: '300px'
-};
+class ReviewForm extends Component {
 
-class Form extends Component {
-        
     constructor(props) {
         super(props);
         this.state = {
@@ -23,16 +20,28 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
-      handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+    handleChange(event) {        
+      this.setState({ [event.target.name]: event.target.value });
+    }
+
+    validate(review) {
+      if (review.name === '' || review.email === '' || review.rating === '') {
+          //leaving comments nullable on purpose)
+        alert('Please fill all fields.');
+        return false;            
       }
+      else {
+        return true;
+      }
+    }
+
+    //Seb: couldn't get this to work. There is no access to this.setState in this synthetic event handler
+    //   handleRate(event){     
+    //     console.log(event.rating);
+    //     //this.setState({ rating: event.rating }); 
+    //   }
     
       handleSubmit(event) {
-        // alert(`New comment submitted: 
-        // Name: ` + this.state.name + `
-        // Email: ` + this.state.email + `
-        // Rating: ` + this.state.rating + `
-        // Comment: ` + this.state.comments);
         
         var newReview = {
             name: this.state.name,
@@ -40,37 +49,48 @@ class Form extends Component {
             rating: this.state.rating,
             comments: this.state.comments,
             createdDateTime: Date(Date.now()).toString('YYYY-MM-DD')
-          };
+          };         
 
-          //add validation
-
-        this.props.submitHandler(newReview);
+          if (this.validate(newReview) === true) {
+            this.props.submitHandler(newReview);
+          }
         event.preventDefault();
       }
-
+    
     render() {
         return (
-            <div style={divStyle}>
-                <form onSubmit={this.handleSubmit}>    
+           
+                <Form onSubmit={this.handleSubmit}>    
 
-                    <label>Name:</label>
-                    <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Name:</Form.Label>
+                        <Form.Control type="text" placeholder="Enter name" name="name" onChange={this.handleChange} />  
+                    </Form.Group>                  
 
-                    <label>Email:</label>                    
-                    <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email:</Form.Label>                    
+                        <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />    
+                    </Form.Group>             
 
-                    <label>Rating:</label>
-                    <input type="text" name="rating" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group>
+                    <Form.Label>Rating:</Form.Label>                    
+                    {/* <Rater total={5} rating={2} name="rating" onRate={this.handleRate}/> */}
+                    <Form.Control type="number" min = "1" max="5" placeholder="Enter rating" name="rating" value={this.state.value} onChange={this.handleChange} />
+                    </Form.Group>  
 
-                    <label>Comments:</label>
-                    <input type="text" name="comments" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group>
+                    <Form.Label>Comments:</Form.Label>
+                    <Form.Control type="text" placeholder="Enter comments" name="comments" value={this.state.value} onChange={this.handleChange} />  
+                    </Form.Group>                  
                     
-                    <input type="submit" value="Submit" />
+                    <Button variant="dark" type="submit">
+                        Submit
+                    </Button>                   
 
-                </form>
-            </div>
+                </Form>
+            
         );
       }
 }
 
-export default Form;
+export default ReviewForm;

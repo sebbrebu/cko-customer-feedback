@@ -1,44 +1,42 @@
 import React from 'react';
 import Aux from '../Aux/Aux';
-import TopContainer from '../TopContainer/TopContainer';
-import BottomContainer from '../BottomContainer/BottomContainer';
+import Header from '../../components/Header/Header';
 import FeedbackContainer from '../../containers/FeedbackContainer/FeedbackContainer';
 import FormContainer from '../../containers/FormContainer/FormContainer';
 import GraphContainer from '../../containers/GraphContainer/GraphContainer';
-import { tsPropertySignature } from '../../../../../Library/Caches/typescript/3.4.5/node_modules/@babel/types/lib';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 
 var row = {
     display: 'table',
     width: '100%'
 };
 
-var header = {
-    backgroundColor: '#666',
-    padding: '30px',
-    textAlign: 'center',
-    fontSize: '35px',
-    color: 'white'
-  }
-
 const layout = (props) => {
     
-        return  (
+        return  ( 
             <Aux>
-                <header style={header}>Customer Feedback</header>
+                <Header title='Customer Feedback' />
 
-                <TopContainer>
-                <div style={row}>
-                    <FormContainer submitHandler={props.submitHandler}/>
-                    <GraphContainer/>
-                </div>
-                </TopContainer>
+                <Container>
+                <Row>
+                    <Col>
+                        <FormContainer submitHandler={props.submitHandler}/>
+                    </Col>
+                    <Col>
+                        <GraphContainer reviews={props.reviews}/>
+                    </Col>
+                </Row>
 
-                <BottomContainer>
-                    <div style={row}>
+                <Row>
+                    <Col>
                         <FeedbackContainer reviews={props.reviews}></FeedbackContainer>
-                    </div>
-                </BottomContainer>
+                    </Col>
+                </Row>
+
+                </Container>
+
             </Aux>
         );
     

@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-
-var divStyle = {
-    borderStyle: 'solid',
-    float: 'left',
-    width: '50%',
-    padding: '10px',
-    height: '300px'
-};
+import './GraphContainer.css';
+import Chart from '../../components/Chart/Chart';
 
 class GraphContainer extends Component {
     render(){
-        return(<div style={divStyle}>
-            This is the graph container
+        return(<div className='GraphContainer'>
+            <Chart reviews={this.props.reviews}></Chart>
         </div>)
     }
 }

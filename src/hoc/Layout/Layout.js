@@ -15,14 +15,14 @@ var row = {
 
 const layout = (props) => {
     
-        return  (
+        return  ( 
             <Aux>
                 <Header title='Customer Feedback' />
 
                 <TopContainer>
                 <div style={row}>
                     <FormContainer submitHandler={props.submitHandler}/>
-                    <GraphContainer/>
+                    <GraphContainer reviews={props.reviews}/>
                 </div>
                 </TopContainer>
 

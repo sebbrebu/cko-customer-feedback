@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Rater from 'react-rater';
-import 'react-rater/lib/react-rater.css';
-
-var divStyle = {
-    float: 'left',
-    width: '40%',
-    padding: '10px',
-    border: '1px solid #eee'
-};
+import './Form.css';
+//import Rater from 'react-rater';
+//import 'react-rater/lib/react-rater.css';
 
 class ReviewForm extends Component {
 
@@ -31,6 +25,7 @@ class ReviewForm extends Component {
         this.setState({ [event.target.name]: event.target.value });
       }
 
+    //Seb: couldn't get this to work. There is no access to this.setState in this synthetic event handler
     //   handleRate(event){     
     //     console.log(event.rating);
     //     //this.setState({ rating: event.rating }); 
@@ -59,7 +54,7 @@ class ReviewForm extends Component {
 
     render() {
         return (
-            <div style={divStyle}>
+            <div className='Form'>
                 <Form onSubmit={this.handleSubmit}>    
 
                     <Form.Group controlId="formBasicEmail">
@@ -70,12 +65,10 @@ class ReviewForm extends Component {
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email:</Form.Label>                    
                         <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />    
-                    </Form.Group>                
-
-                    
+                    </Form.Group>             
 
                     <Form.Group>
-                    <Form.Label>Rating:</Form.Label>
+                    <Form.Label>Rating:</Form.Label>                    
                     {/* <Rater total={5} rating={2} name="rating" onRate={this.handleRate}/> */}
                     <Form.Control type="number" min = "1" max="5" placeholder="Enter rating" name="rating" value={this.state.value} onChange={this.handleChange} />
                     </Form.Group>  

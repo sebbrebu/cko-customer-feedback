@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import CustomerFeedback from '../../components/CustomerFeedback/CustomerFeedback'
 
+//using inline style for this component, for demo puprposes
 var divStyle = {    
     float: 'left',
     width: '95%',
     padding: '10px',
-    marginTop: '100px'   
+    marginTop: '50px'   
 };
 
 class FeedbackContainer extends Component {
@@ -18,6 +19,7 @@ class FeedbackContainer extends Component {
 
             {
                 this.props.reviews.map((rev, index) => { 
+                    //show only the last 5 reviews. When adding new reviews, they are added at the beginning of the array.
                     if (index < 5)   
                     {
                         return <CustomerFeedback 
@@ -28,7 +30,8 @@ class FeedbackContainer extends Component {
                                 comments={rev.comments}
                                 createdDateTime={rev.createdDateTime}
                                 />
-                    } 
+                    }
+                    else return null;
                 })
             }
 

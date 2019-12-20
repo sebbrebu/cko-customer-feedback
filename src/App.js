@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Layout from './hoc/Layout//Layout.js';
-import { array } from 'prop-types';
 
 class App extends Component {
 

@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-
-var divStyle = {    
-    border: '1px solid #eee',
-    float: 'left',
-    width: '50%',
-    padding: '10px',
-    height: '300px',
-    marginLeft: '20px'
-};
+import './GraphContainer.css';
 
 class GraphContainer extends Component {
     render(){
-        return(<div style={divStyle}>
-            This is the graph container
+        return(<div className='GraphContainer'>
+            This is the graph containerr
         </div>)
     }
 }

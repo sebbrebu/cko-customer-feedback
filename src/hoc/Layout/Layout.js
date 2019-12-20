@@ -5,7 +5,6 @@ import BottomContainer from '../BottomContainer/BottomContainer';
 import FeedbackContainer from '../../containers/FeedbackContainer/FeedbackContainer';
 import FormContainer from '../../containers/FormContainer/FormContainer';
 import GraphContainer from '../../containers/GraphContainer/GraphContainer';
-import { tsPropertySignature } from '../../../../../Library/Caches/typescript/3.4.5/node_modules/@babel/types/lib';
 
 
 var row = {

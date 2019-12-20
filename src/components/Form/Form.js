@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 var divStyle = {
-    borderStyle: 'solid',
     float: 'left',
     width: '40%',
     padding: '10px',
-    height: '300px'
+    border: '1px solid #eee'
 };
 
-class Form extends Component {
-        
+class ReviewForm extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -23,9 +27,14 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
-      handleChange(event) {
+      handleChange(event) {        
         this.setState({ [event.target.name]: event.target.value });
       }
+
+    //   handleRate(event){     
+    //     console.log(event.rating);
+    //     //this.setState({ rating: event.rating }); 
+    //   }
     
       handleSubmit(event) {
         // alert(`New comment submitted: 
@@ -51,26 +60,39 @@ class Form extends Component {
     render() {
         return (
             <div style={divStyle}>
-                <form onSubmit={this.handleSubmit}>    
+                <Form onSubmit={this.handleSubmit}>    
 
-                    <label>Name:</label>
-                    <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Name:</Form.Label>
+                        <Form.Control type="text" placeholder="Enter name" name="name" onChange={this.handleChange} />  
+                    </Form.Group>                  
 
-                    <label>Email:</label>                    
-                    <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />                    
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email:</Form.Label>                    
+                        <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />    
+                    </Form.Group>                
 
-                    <label>Rating:</label>
-                    <input type="text" name="rating" value={this.state.value} onChange={this.handleChange} />                    
-
-                    <label>Comments:</label>
-                    <input type="text" name="comments" value={this.state.value} onChange={this.handleChange} />                    
                     
-                    <input type="submit" value="Submit" />
 
-                </form>
+                    <Form.Group>
+                    <Form.Label>Rating:</Form.Label>
+                    {/* <Rater total={5} rating={2} name="rating" onRate={this.handleRate}/> */}
+                    <Form.Control type="number" min = "1" max="5" placeholder="Enter rating" name="rating" value={this.state.value} onChange={this.handleChange} />
+                    </Form.Group>  
+
+                    <Form.Group>
+                    <Form.Label>Comments:</Form.Label>
+                    <Form.Control type="text" placeholder="Enter comments"  name="comments" value={this.state.value} onChange={this.handleChange} />  
+                    </Form.Group>                  
+                    
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>                   
+
+                </Form>
             </div>
         );
       }
 }
 
-export default Form;
+export default ReviewForm;

@@ -4,7 +4,8 @@ import CustomerFeedback from '../../components/CustomerFeedback/CustomerFeedback
 var divStyle = {    
     float: 'left',
     width: '95%',
-    padding: '10px'   
+    padding: '10px',
+    marginTop: '100px'   
 };
 
 class FeedbackContainer extends Component {

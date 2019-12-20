@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-var divStyle = {
-    borderStyle: 'solid',
+var divStyle = {    
+    border: '1px solid #eee',
     float: 'left',
     width: '50%',
     padding: '10px',
-    height: '300px'
+    height: '300px',
+    marginLeft: '20px'
 };
 
 class GraphContainer extends Component {

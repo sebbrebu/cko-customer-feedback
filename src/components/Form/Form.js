@@ -21,9 +21,20 @@ class ReviewForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
-      handleChange(event) {        
-        this.setState({ [event.target.name]: event.target.value });
+    handleChange(event) {        
+      this.setState({ [event.target.name]: event.target.value });
+    }
+
+    validate(review) {
+      if (review.name === '' || review.email === '' || review.rating === '') {
+          //leaving comments nullable on purpose)
+        alert('Please fill all fields.');
+        return false;            
       }
+      else {
+        return true;
+      }
+    }
 
     //Seb: couldn't get this to work. There is no access to this.setState in this synthetic event handler
     //   handleRate(event){     
@@ -32,11 +43,6 @@ class ReviewForm extends Component {
     //   }
     
       handleSubmit(event) {
-        // alert(`New comment submitted: 
-        // Name: ` + this.state.name + `
-        // Email: ` + this.state.email + `
-        // Rating: ` + this.state.rating + `
-        // Comment: ` + this.state.comments);
         
         var newReview = {
             name: this.state.name,
@@ -44,13 +50,15 @@ class ReviewForm extends Component {
             rating: this.state.rating,
             comments: this.state.comments,
             createdDateTime: Date(Date.now()).toString('YYYY-MM-DD')
-          };
+          };         
 
-          //add validation
-
-        this.props.submitHandler(newReview);
+          if (this.validate(newReview) === true) {
+            this.props.submitHandler(newReview);
+          }
         event.preventDefault();
       }
+    
+
 
     render() {
         return (

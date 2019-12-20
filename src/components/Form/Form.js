@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Form.css';
 //import Rater from 'react-rater';
 //import 'react-rater/lib/react-rater.css';
 
@@ -58,11 +57,9 @@ class ReviewForm extends Component {
         event.preventDefault();
       }
     
-
-
     render() {
         return (
-            <div className='Form'>
+           
                 <Form onSubmit={this.handleSubmit}>    
 
                     <Form.Group controlId="formBasicEmail">
@@ -83,15 +80,15 @@ class ReviewForm extends Component {
 
                     <Form.Group>
                     <Form.Label>Comments:</Form.Label>
-                    <Form.Control type="text" placeholder="Enter comments"  name="comments" value={this.state.value} onChange={this.handleChange} />  
+                    <Form.Control type="text" placeholder="Enter comments" name="comments" value={this.state.value} onChange={this.handleChange} />  
                     </Form.Group>                  
                     
-                    <Button variant="primary" type="submit">
+                    <Button variant="dark" type="submit">
                         Submit
                     </Button>                   
 
                 </Form>
-            </div>
+            
         );
       }
 }

@@ -3,7 +3,9 @@ import ReviewForm from '../../components/Form/Form';
 
 class FormContainer extends Component {
     render(){
-        return(<ReviewForm submitHandler={this.props.submitHandler}></ReviewForm>)
+        return(<div className='GraphContainer'>
+            <ReviewForm submitHandler={this.props.submitHandler}></ReviewForm>
+            </div>)
     }
 }
 

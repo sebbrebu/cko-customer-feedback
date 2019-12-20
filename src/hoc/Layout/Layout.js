@@ -1,12 +1,12 @@
 import React from 'react';
 import Aux from '../Aux/Aux';
 import Header from '../../components/Header/Header';
-import TopContainer from '../TopContainer/TopContainer';
-import BottomContainer from '../BottomContainer/BottomContainer';
 import FeedbackContainer from '../../containers/FeedbackContainer/FeedbackContainer';
 import FormContainer from '../../containers/FormContainer/FormContainer';
 import GraphContainer from '../../containers/GraphContainer/GraphContainer';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 
 var row = {
     display: 'table',
@@ -19,18 +19,24 @@ const layout = (props) => {
             <Aux>
                 <Header title='Customer Feedback' />
 
-                <TopContainer>
-                <div style={row}>
-                    <FormContainer submitHandler={props.submitHandler}/>
-                    <GraphContainer reviews={props.reviews}/>
-                </div>
-                </TopContainer>
+                <Container>
+                <Row>
+                    <Col>
+                        <FormContainer submitHandler={props.submitHandler}/>
+                    </Col>
+                    <Col>
+                        <GraphContainer reviews={props.reviews}/>
+                    </Col>
+                </Row>
 
-                <BottomContainer>
-                    <div style={row}>
+                <Row>
+                    <Col>
                         <FeedbackContainer reviews={props.reviews}></FeedbackContainer>
-                    </div>
-                </BottomContainer>
+                    </Col>
+                </Row>
+
+                </Container>
+
             </Aux>
         );
     

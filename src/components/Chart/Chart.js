@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    LineChart, Line, XAxis, YAxis, CartesianGrid,
     BarChart, Bar
   } from 'recharts';
+
+var textStyle = {
+    textAlign: 'center'
+};
 
 class Chart extends Component {
     render() {
@@ -29,29 +33,26 @@ class Chart extends Component {
 
         return (
             <div>
-                <p>History</p>
+                <p style={textStyle}>History</p>
                 <LineChart
                     width={450}
                     height={200}
                     data={reversedArray}
                     margin={{
-                    top: 30, right: 30, left: 0, bottom: 5,
+                    top: 30, right: 30, left: 0, bottom: 50,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    
-                    <YAxis type="number" domain={[1, 5]}/>
-                    
-                    
-                    <Line type="monotone" dataKey="rating" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <CartesianGrid strokeDasharray="3 3" />                    
+                    <YAxis type="number" domain={[1, 5]}/> 
+                    <Line type="monotone" dataKey="rating" stroke="rgb(0, 180, 143)" activeDot={{ r: 8 }} />
                 </LineChart>
                 
-                <p>Summary</p>
+                <p style={textStyle}>Summary</p>
                 <BarChart width={450} height={200} data={ratingSummaryExtended}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="rating" />
                     <YAxis />                    
-                    <Bar dataKey="count" fill="#8884d8" />
+                    <Bar dataKey="count" fill="rgb(0, 180, 143)" />
                 </BarChart>
             </div>
         );

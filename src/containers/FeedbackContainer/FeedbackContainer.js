@@ -9,13 +9,17 @@ var divStyle = {
     marginTop: '50px'   
 };
 
+var titleFont = {
+    fontFamily: "Courier"
+}
+
 class FeedbackContainer extends Component {
     render(){
         var details = (this.props.reviews.length > 5) ? ' (last 5 out of ' + this.props.reviews.length + ')': '';
         return(
         <div style={divStyle}>
 
-            <h1>Customer Reviews{details}:</h1>
+            <h1 style={titleFont}>Customer Reviews{details}:</h1>
 
             {
                 this.props.reviews.map((rev, index) => { 

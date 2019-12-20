@@ -4,4 +4,4 @@ Build and tag the Docker image:
 
 Then, spin up the container once the build is done:
 
-### ` docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm sample:dev`
+### ` docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm cko-customer-feedback:dev`

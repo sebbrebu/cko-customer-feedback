@@ -54,27 +54,26 @@ class ReviewForm extends Component {
     render() {
         return (
            
-                <Form onSubmit={this.handleSubmit}>    
+                <Form aria-label='review-form' data-testid='form' onSubmit={this.handleSubmit}>    
 
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Name:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter name" name="name" onChange={this.handleChange} />  
+                        <Form.Control aria-label='name-input' type="text" placeholder="Enter name" name="name" onChange={this.handleChange} />  
                     </Form.Group>                  
 
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email:</Form.Label>                    
-                        <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />    
+                        <Form.Control aria-label='email-input' type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />    
                     </Form.Group>             
 
                     <Form.Group>
-                    <Form.Label>Rating:</Form.Label>                    
-                    {/* <Rater total={5} rating={2} name="rating" onRate={this.handleRate}/> */}
-                    <Form.Control type="number" min = "1" max="5" placeholder="Enter rating" name="rating" value={this.state.value} onChange={this.handleChange} />
+                        <Form.Label>Rating:</Form.Label>            
+                        <Form.Control aria-label='rating-input' type="number" min = "1" max="5" placeholder="Enter rating" name="rating" value={this.state.value} onChange={this.handleChange} />
                     </Form.Group>  
 
                     <Form.Group>
-                    <Form.Label>Comments:</Form.Label>
-                    <Form.Control type="text" placeholder="Enter comments" name="comments" value={this.state.value} onChange={this.handleChange} />  
+                        <Form.Label>Comments:</Form.Label>
+                        <Form.Control aria-label='comments-input' type="text" placeholder="Enter comments" name="comments" value={this.state.value} onChange={this.handleChange} />  
                     </Form.Group>                  
                     
                     <Button data-testid="submit-btn" variant="dark" type="submit">

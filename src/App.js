@@ -26,17 +26,18 @@ class App extends Component {
         rating: '3',
         comments: 'meh',
         createdDateTime: '2019-12-01'
+      },
+      {
+        name: 'Yes Man',
+        email: 'yesman@gmail.com',
+        rating: '5',
+        comments: 'Yes',
+        createdDateTime: '2019-11-01'
       }
     ]
   };
 
   submitReviewHandler = (rev) => {
-
-    // alert(`New customer review submitted: 
-    // Name: ` + rev.name + `
-    // Email: ` + rev.email + `
-    // Rating: ` + rev.rating + `
-    // Comments: ` + rev.comments);
 
     var reviewsArray = [...this.state.reviews];
     reviewsArray.unshift(rev);

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import ReviewForm from '../../components/Form/Form';
+import ReviewForm from '../../components/ReviewForm/ReviewForm';
 
 class FormContainer extends Component {
     render(){
-        return(<div className='GraphContainer'>
-            <ReviewForm submitHandler={this.props.submitHandler}></ReviewForm>
-            </div>)
+        return(
+            <div className='GraphContainer'>
+                <ReviewForm submitHandler={this.props.submitHandler}></ReviewForm>
+            </div>
+        )
     }
 }
 

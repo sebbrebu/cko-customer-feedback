@@ -26,6 +26,13 @@ class App extends Component {
         rating: '3',
         comments: 'meh',
         createdDateTime: '2019-12-01'
+      },
+      {
+        name: 'Yes Man',
+        email: 'yesman@gmail.com',
+        rating: '5',
+        comments: 'Yes',
+        createdDateTime: '2019-11-01'
       }
     ]
   };

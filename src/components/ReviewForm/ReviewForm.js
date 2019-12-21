@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Rater from 'react-rater';
-//import 'react-rater/lib/react-rater.css';
 
 class ReviewForm extends Component {
 
@@ -25,21 +23,16 @@ class ReviewForm extends Component {
     }
 
     validate(review) {
-      if (review.name === '' || review.email === '' || review.rating === '') {
-          //leaving comments nullable on purpose)
-        alert('Please fill all fields.');
-        return false;            
-      }
-      else {
-        return true;
-      }
+        //leaving comments nullable on purpose)
+        if (review.name === '' || review.email === '' || review.rating === '') {
+        
+            alert('Please fill all fields.');
+            return false;            
+        }
+        else {
+            return true;
+        }
     }
-
-    //Seb: couldn't get this to work. There is no access to this.setState in this synthetic event handler
-    //   handleRate(event){     
-    //     console.log(event.rating);
-    //     //this.setState({ rating: event.rating }); 
-    //   }
     
       handleSubmit(event) {
         

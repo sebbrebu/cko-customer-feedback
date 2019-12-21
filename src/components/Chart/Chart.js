@@ -13,8 +13,6 @@ class Chart extends Component {
 
         var reversedArray = [...this.props.reviews];
         reversedArray.reverse();      
-        
-        console.log(reversedArray);
 
         //Count occurrence for each rating
         var ratingSummary = this.props.reviews.reduce((p, c) => {

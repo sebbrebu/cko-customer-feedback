@@ -32,12 +32,6 @@ class App extends Component {
 
   submitReviewHandler = (rev) => {
 
-    // alert(`New customer review submitted: 
-    // Name: ` + rev.name + `
-    // Email: ` + rev.email + `
-    // Rating: ` + rev.rating + `
-    // Comments: ` + rev.comments);
-
     var reviewsArray = [...this.state.reviews];
     reviewsArray.unshift(rev);
     this.setState({ reviews: reviewsArray});

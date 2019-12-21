@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CustomerFeedback from '../../components/CustomerFeedback/CustomerFeedback'
+import Review from '../../components/Review/Review'
 
 //using inline style for this component, for demo puprposes
 var divStyle = {    
@@ -27,7 +27,7 @@ class FeedbackContainer extends Component {
                     //show only the last 5 reviews. When adding new reviews, they are added at the beginning of the array.
                     if (index < 5)   
                     {
-                        return <CustomerFeedback 
+                        return <Review 
                                 key={rev.name}
                                 name={rev.name}
                                 email={rev.email}

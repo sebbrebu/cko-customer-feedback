@@ -16,10 +16,10 @@ class ReviewForm extends Component {
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
+    }
     
     handleChange(event) {        
-      this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     validate(review) {
@@ -34,7 +34,7 @@ class ReviewForm extends Component {
         }
     }
     
-      handleSubmit(event) {
+    handleSubmit(event) {
         
         var newReview = {
             name: this.state.name,
@@ -42,13 +42,14 @@ class ReviewForm extends Component {
             rating: this.state.rating,
             comments: this.state.comments,
             createdDateTime: Date(Date.now()).toString('YYYY-MM-DD')
-          };         
+        };         
 
-          if (this.validate(newReview) === true) {
+        if (this.validate(newReview) === true) {
             this.props.submitHandler(newReview);
-          }
+        }
+
         event.preventDefault();
-      }
+    }
     
     render() {
         return (
@@ -76,14 +77,14 @@ class ReviewForm extends Component {
                     <Form.Control type="text" placeholder="Enter comments" name="comments" value={this.state.value} onChange={this.handleChange} />  
                     </Form.Group>                  
                     
-                    <Button variant="dark" type="submit">
+                    <Button data-testid="submit-btn" variant="dark" type="submit">
                         Submit
                     </Button>                   
 
                 </Form>
             
         );
-      }
+    }
 }
 
 export default ReviewForm;

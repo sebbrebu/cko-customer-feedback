@@ -1,5 +1,9 @@
-import { ReviewForm } from './ReviewForm';
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import ReviewForm from './ReviewForm';
 
-test('should validate', () => {
-    expect(true).toBeTruthy();
+it('inserts text in button', () => {
+    const { getByTestId } = render(<ReviewForm />);
+    expect(getByTestId('submit-btn')).toHaveTextContent('Submit');
 });

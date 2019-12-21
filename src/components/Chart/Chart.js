@@ -13,16 +13,17 @@ class Chart extends Component {
 
         var reversedArray = [...this.props.reviews];
         reversedArray.reverse();      
+        
+        //Seb: we want the chart to show all 5 rating values, even if there aren't any ratings
+        var template =  { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
         //Count occurrence for each rating
         var ratingSummary = this.props.reviews.reduce((p, c) => {
-            var rating = c.rating;
-            if (!p.hasOwnProperty(rating)) {
-                p[rating] = 0;
-              }
-              p[rating]++;
-              return p;
-            }, {}
+                var rating = c.rating;
+                p[rating]++;
+                return p;
+            }, 
+            template
         );
         
         //make the object compatible with the Chart

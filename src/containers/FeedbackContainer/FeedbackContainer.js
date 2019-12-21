@@ -10,7 +10,8 @@ var divStyle = {
 };
 
 var titleFont = {
-    fontFamily: "Courier"
+    fontFamily: 'Courier',
+    marginLeft: '10px'
 }
 
 class FeedbackContainer extends Component {
@@ -19,7 +20,7 @@ class FeedbackContainer extends Component {
         return(
         <div style={divStyle}>
 
-            <h3 style={titleFont}>Customer Reviews{details}:</h3>
+            <h3 style={titleFont}>Reviews{details}:</h3>
 
             {
                 this.props.reviews.map((rev, index) => { 

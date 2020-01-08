@@ -50,7 +50,14 @@ it('submits when all mandatory fields have values', () => {
 
     fireEvent.click(getByTestId('submit-btn'));
 
-    expect(onSubmitMock).toBeCalled();
+    let expected = {
+        "comments": "", 
+        "createdDateTime": Date(Date.now()).toString('YYYY-MM-DD'), 
+        "email": "seb@email.com", 
+        "name": "seb", 
+        "rating": "4"};
+
+    expect(onSubmitMock).toBeCalledWith(expected);
 });
 
 it('alert when mandatory fields don\'t have values', async () => {

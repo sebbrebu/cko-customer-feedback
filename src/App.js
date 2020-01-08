@@ -39,7 +39,7 @@ class App extends Component {
 
   submitReviewHandler = (rev) => {
 
-    var reviewsArray = [...this.state.reviews];
+    let reviewsArray = [...this.state.reviews];
     reviewsArray.unshift(rev);
     this.setState({ reviews: reviewsArray});
   }

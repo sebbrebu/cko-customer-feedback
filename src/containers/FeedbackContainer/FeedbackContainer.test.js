@@ -7,7 +7,7 @@ afterEach(cleanup);
 
 it('Show just title up to 5 reviews', () => {
 
-    var reviews = [
+    let reviews = [
         { name: 'Seb' }, 
         { name: 'Mr. Grumpy' }, 
         { name: 'Mr. Average' }
@@ -20,7 +20,7 @@ it('Show just title up to 5 reviews', () => {
 
 it('Show title and details over 5 reviews', () => {
 
-    var reviews = [
+    let reviews = [
         { name: 'Seb' }, 
         { name: 'Mr. Grumpy' }, 
         { name: 'Mr. Average' },

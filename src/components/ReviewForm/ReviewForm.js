@@ -36,7 +36,7 @@ class ReviewForm extends Component {
     
     handleSubmit(event) {
         
-        var newReview = {
+        const newReview = {
             name: this.state.name,
             email: this.state.email,
             rating: this.state.rating,

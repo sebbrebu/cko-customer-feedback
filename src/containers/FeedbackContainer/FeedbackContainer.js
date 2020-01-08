@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import Review from '../../components/Review/Review'
 
 //using inline style for this component, for demo puprposes
-var divStyle = {    
+const divStyle = {    
     float: 'left',
     width: '95%',
     padding: '10px',
     marginTop: '50px'   
 };
 
-var titleFont = {
+const titleFont = {
     fontFamily: 'Courier',
     marginLeft: '10px'
 }
 
 class FeedbackContainer extends Component {
     render(){
-        var details = (this.props.reviews.length > 5) ? ' (last 5 out of ' + this.props.reviews.length + ')': '';
+        const details = (this.props.reviews.length > 5) ? ' (last 5 out of ' + this.props.reviews.length + ')': '';
         return(
         <div style={divStyle}>
 

@@ -4,22 +4,22 @@ import {
     BarChart, Bar
   } from 'recharts';
 
-var textStyle = {
+const textStyle = {
     textAlign: 'center'
 };
 
 class Chart extends Component {
     render() {
 
-        var reversedArray = [...this.props.reviews];
+        let reversedArray = [...this.props.reviews];
         reversedArray.reverse();      
         
         //Seb: we want the chart to show all 5 rating values, even if there aren't any ratings
-        var template =  { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        let template =  { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
         //Count occurrence for each rating
-        var ratingSummary = this.props.reviews.reduce((p, c) => {
-                var rating = c.rating;
+        let ratingSummary = this.props.reviews.reduce((p, c) => {
+                let rating = c.rating;
                 p[rating]++;
                 return p;
             }, 
@@ -27,7 +27,7 @@ class Chart extends Component {
         );
         
         //make the object compatible with the Chart
-        var ratingSummaryExtended = Object.keys(ratingSummary).map(k => {
+        let ratingSummaryExtended = Object.keys(ratingSummary).map(k => {
             return {rating: k, count: ratingSummary[k]}; });
 
         return (

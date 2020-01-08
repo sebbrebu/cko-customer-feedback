@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 import FeedbackContainer from '../../containers/FeedbackContainer/FeedbackContainer';
 import FormContainer from '../../containers/FormContainer/FormContainer';
 import GraphContainer from '../../containers/GraphContainer/GraphContainer';
